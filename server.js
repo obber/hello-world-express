@@ -5,7 +5,7 @@ var os = require('os').homedir();
 var LEX = require('letsencrypt-express').testing();
 
 // Change these two lines!
-var DOMAIN = 'localhost';
+var DOMAIN = 'ec2-52-38-24-188.us-west-2.compute.amazonaws.com';
 var EMAIL = 'kan@kanadachi.com';
 
 var lex = LEX.create({
@@ -27,5 +27,5 @@ lex.onRequest = app;
 
 lex.listen([80], [443, 5001], function () {
   var protocol = ('requestCert' in this) ? 'https': 'http';
-  console.log("Listening at " + protocol + '://localhost:' + this.address().port);
+  console.log("Listening at " + protocol + '://ec2-52-38-24-188.us-west-2.compute.amazonaws.com:' + this.address().port);
 });
